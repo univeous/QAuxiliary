@@ -260,13 +260,7 @@ public class AioChatPieClipPasteHook extends CommonSwitchFunctionHook implements
         binding.ivPicture.setImageBitmap(bitmap);
         binding.tvName.setText(uin);
         FaceImpl.getInstance().setImageOrRegister(uinType == 1 ? FaceImpl.TYPE_TROOP : FaceImpl.TYPE_USER, uin, binding.ivAvatar);
-        new AlertDialog.Builder(ctx)
-                .setTitle("发送给：")
-                .setView(binding.getRoot())
-                .setPositiveButton("发送", (dialog, which) -> executeSendMessage(context, session, data, aioRootView, rt))
-                .setNegativeButton(android.R.string.cancel, null)
-                .setCancelable(true)
-                .show();
+        executeSendMessage(context, session, data, aioRootView, rt);
     }
 
     private static void executeSendMessage(@NonNull Context context, @NonNull Parcelable session, @NonNull byte[] data,
